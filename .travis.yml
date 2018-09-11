@@ -15,5 +15,22 @@ jobs:
       python: 3.5
       script:
         - tox -e flake8
-        - tox -e py35 
+
+    - stage: python 3.5 tests
+      python: 3.5
+      script:
+        - tox -e py35
+
+    - stage: python 3.6 tests
+      python: 3.6
+      script:
+        - tox -e py36
+
+    - stage: python 3.7 tests
+      python: 3.7
+      dist: xenial
+      sudo: true
+      script:
+        - tox -e py37
+
 tags: true
