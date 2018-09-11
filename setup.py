@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='ezcfg',
-    version='0.1.1',
+    version='0.1.2',
     description="Simple python configuration tool",
     long_description=open('README.md').read(),
     author="Yuval Shalev",
