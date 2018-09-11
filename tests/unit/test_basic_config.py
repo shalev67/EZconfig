@@ -41,6 +41,8 @@ class TestBasicConfig:
         assert config.test1 == {}
         config.register_config(name='test1', config_type=list, default=[])
         assert config.test1 == []
+        config.register_config(name='test1', config_type=bool, default=False)
+        assert type(config.test1) is bool and not config.test1
 
     def test_register_config_bad_default_value_type(self, config):
         with pytest.raises(TypeError):
@@ -57,6 +59,8 @@ class TestBasicConfig:
             config.register_config(name='test1', config_type=dict, default=[])
         with pytest.raises(TypeError):
             config.register_config(name='test1', config_type=list, default='test1')
+        with pytest.raises(TypeError):
+            config.register_config(name='test1', config_type=bool, default='false')
 
     def test_register_config_bad_value_type(self, config):
         with pytest.raises(TypeError):
@@ -73,3 +77,5 @@ class TestBasicConfig:
             config.register_config(name='test1', config_type=dict, default={}, value=[])
         with pytest.raises(TypeError):
             config.register_config(name='test1', config_type=list, default=[], value=1)
+        with pytest.raises(TypeError):
+            config.register_config(name='test1', config_type=bool, default=True, value=1)

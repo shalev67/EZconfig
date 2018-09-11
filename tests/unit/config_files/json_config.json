@@ -4,5 +4,7 @@
   "c": 1.2,
   "d": [1,2,3],
   "e": {"1": 1},
-  "f": "not registered"
+  "f": true,
+  "g": false,
+  "h": "not registered"
 }

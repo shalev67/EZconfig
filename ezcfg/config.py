@@ -20,7 +20,8 @@ class _Config:
                 config_type == list,
                 config_type == dict,
                 config_type == int,
-                config_type == float
+                config_type == float,
+                config_type == bool
             ]
         )
 
@@ -52,6 +53,15 @@ class _Config:
             self._value = int(value)
         elif self.config_type is float:
             self._value = float(value)
+        elif self.config_type is bool:
+            if type(value) is bool:
+                self._value = value
+            elif value.lower() == 'true':
+                self._value = True
+            elif value.lower() == 'false':
+                self._value = False
+            else:
+                raise KeyError()
 
 
 class EZConfig:

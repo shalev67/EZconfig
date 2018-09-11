@@ -54,3 +54,15 @@ class TestLoadConfigFromEnv:
         config.load_config_from_env()
         assert type(config.test1) is list
         del os.environ['TEST1']
+
+    def test_load_config_from_env_bool(self, config):
+        config.register_config(name='test1', config_type=bool, default=True, env_var='TEST1')
+        os.environ['TEST1'] = 'FALSE'
+        config.load_config_from_env()
+        assert type(config.test1) is bool and not config.test1
+        del os.environ['TEST1']
+
+        os.environ['TEST1'] = 'False'
+        config.load_config_from_env()
+        assert type(config.test1) is bool and not config.test1
+        del os.environ['TEST1']
