@@ -5,6 +5,7 @@ setup(
     version='0.1.2',
     description="Simple python configuration tool",
     long_description=open('README.md').read(),
+    long_description_content_type='text/markdown',
     author="Yuval Shalev",
     author_email='shalev67@gmail.com',
     url='https://github.com/shalev67/EZconfig',
